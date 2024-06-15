@@ -1,14 +1,18 @@
-def hasPairWithSum(arr, target):
-    seen = set()
-    for num in arr:
-        complement = target - num
-        if complement in seen:
-            return "Yes"
-        seen.add(num)
-    return "No"
+def find_peaks(nums):
+    peaks = []
+    for i in range(len(nums)):
+        if i == 0:
+            if nums[i] >= nums[i+1]:
+                peaks.append(nums[i])
+        elif i == len(nums) - 1:
+            if nums[i] >= nums[i-1]:
+                peaks.append(nums[i])
+        else:
+            if nums[i] >= nums[i-1] and nums[i] >= nums[i+1]:
+                peaks.append(nums[i])
+    return peaks
 
-n = int(input().strip())
-arr = list(map(int, input().strip().split()))
-target = int(input().strip())
-
-print(hasPairWithSum(arr, target))
+n = int(input())
+nums = list(map(int, input().split()))
+peaks = find_peaks(nums)
+print(' '.join(map(str, peaks)))
