@@ -1,15 +1,12 @@
-def get_number_within_range(min_value, max_value):
-    try:
-        user_input = int(input())
-        if min_value <= user_input <= max_value:
-            print("Valid input.")
-        else:
-            print("Error: Number out of allowed range")
-    except ValueError:
-        print("Error: invalid literal for int()")
+try:
+    a=input()
+    if len(a)==0:
+        print("Error: Please enter a valid age.")
+    elif a.isnumeric():
+        print (f"You are {a} years old.")
 
-# Define the range
-min_value = 1
-max_value = 100
+    else:
+        print("Error: Please enter a valid age.")
 
-get_number_within_range(min_value, max_value)
+except:
+    print("Error: Please enter a valid age.")
